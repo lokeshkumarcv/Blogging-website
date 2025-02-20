@@ -13,15 +13,17 @@
     
     <main>
         <section id="blog-posts">
-            <!-- Blog posts will be dynamically added here -->
+            <!-- Published blogs will be dynamically loaded here -->
         </section>
-        
+
         <div class="post-form">
-            <h2>Add a New Post</h2>
+            <h2>Add a New Blog Post</h2>
             <input type="text" id="post-title" placeholder="Post Title">
             <textarea id="post-content" placeholder="Write your post..."></textarea>
-            <button onclick="addPost()">Publish</button>
+            <button onclick="publishBlog()">Publish</button>
         </div>
+
+        <button class="published-btn" onclick="fetchPublishedBlogs()">📜 View Published Blogs</button>
     </main>
 
     <script src="script.js"></script>
