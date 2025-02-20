@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Blog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to My Blog</h1>
+    </header>
+    
+    <main>
+        <section id="blog-posts">
+            <!-- Blog posts will be dynamically added here -->
+        </section>
+        
+        <div class="post-form">
+            <h2>Add a New Post</h2>
+            <input type="text" id="post-title" placeholder="Post Title">
+            <textarea id="post-content" placeholder="Write your post..."></textarea>
+            <button onclick="addPost()">Publish</button>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
