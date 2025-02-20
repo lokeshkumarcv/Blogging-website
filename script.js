@@ -1,6 +1,6 @@
 const GITHUB_USERNAME = "your-username";  // Replace with your GitHub username
-const REPO_NAME = "my-blog";  // Replace with your repository name
-const FILE_PATH = "blogs.json";  // File where blogs are saved
+const REPO_NAME = "your-repository";  // Replace with your repository name
+const FILE_PATH = "blogs.json";  // File where blogs are stored
 const GITHUB_API_TOKEN = "your-github-token"; // Replace with your GitHub token
 
 async function publishBlog() {
@@ -18,7 +18,7 @@ async function publishBlog() {
     let existingBlogs = await fetchPublishedBlogs(true);
     existingBlogs.push(newBlog);
 
-    // Save updated blogs back to GitHub
+    // Save updated blogs to GitHub
     saveBlogsToGitHub(existingBlogs);
 
     // Clear input fields
@@ -31,6 +31,7 @@ async function publishBlog() {
 async function fetchPublishedBlogs(returnData = false) {
     try {
         let response = await fetch(`https://raw.githubusercontent.com/${GITHUB_USERNAME}/${REPO_NAME}/main/${FILE_PATH}`);
+        if (!response.ok) throw new Error("File not found");
         let blogs = await response.json();
         if (returnData) return blogs;
 
@@ -82,3 +83,7 @@ async function getFileSHA() {
         return null;
     }
 }
+
+// Fetch blogs when the page loads
+fetchPublishedBlogs();
+
